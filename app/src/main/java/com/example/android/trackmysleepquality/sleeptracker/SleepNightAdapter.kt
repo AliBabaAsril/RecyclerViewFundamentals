@@ -21,9 +21,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android.trackmysleepquality.R
-import com.example.android.trackmysleepquality.convertDurationToFormatted
-import com.example.android.trackmysleepquality.convertNumericQualityToString
 import com.example.android.trackmysleepquality.database.SleepNight
 import com.example.android.trackmysleepquality.databinding.ListItemSleepNightBinding
 
@@ -39,7 +36,7 @@ class SleepNightAdapter(val clickListener: SleepNightListener): ListAdapter<Slee
 
     class ViewHolder private constructor(val binding: ListItemSleepNightBinding) : RecyclerView.ViewHolder(binding.root){
 
-        fun bind(item: SleepNight) {
+        fun bind(item: SleepNight, clickListener: SleepNightListener) {
             binding.sleep = item
             binding.clickListener = clickListener
             binding.executePendingBindings()
