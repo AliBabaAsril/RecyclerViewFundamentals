@@ -69,3 +69,6 @@ class SleepNightDiffCallback : DiffUtil.ItemCallback<SleepNight>() {
 
 
 }
+class SleepNightListener() {
+    fun onClick(night: SleepNight) = clickListener(night.nightId)
+}
