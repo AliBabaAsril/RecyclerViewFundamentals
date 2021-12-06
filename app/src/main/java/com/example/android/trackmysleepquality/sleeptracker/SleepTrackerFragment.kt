@@ -60,6 +60,8 @@ class SleepTrackerFragment : Fragment() {
         val dataSource = SleepDatabase.getInstance(application).sleepDatabaseDao
         val viewModelFactory = SleepTrackerViewModelFactory(dataSource, application)
 
+        val adapter = SleepNightAdapter()
+
         // Get a reference to the ViewModel associated with this fragment.
         val sleepTrackerViewModel =
                 ViewModelProvider(
@@ -72,6 +74,8 @@ class SleepTrackerFragment : Fragment() {
         // Specify the current activity as the lifecycle owner of the binding.
         // This is necessary so that the binding can observe LiveData updates.
         binding.lifecycleOwner = this
+
+        binding.sleepList.adapter = adapter
 
         // Add an Observer on the state variable for showing a Snackbar message
         // when the CLEAR button is pressed.
