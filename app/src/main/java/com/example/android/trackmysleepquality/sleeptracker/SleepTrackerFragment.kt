@@ -70,7 +70,9 @@ class SleepTrackerFragment : Fragment() {
         // give the binding object a reference to it.
         binding.sleepTrackerViewModel = sleepTrackerViewModel
 
-        val adapter = SleepNightAdapter()
+        val adapter = SleepNightAdapter(SleepNightListener { nightId ->
+            Toast.makeText(context, "${nightId}", Toast.LENGTH_LONG).show()
+        })
         binding.sleepList.adapter = adapter
 
         sleepTrackerViewModel.nights.observe(viewLifecycleOwner, Observer {
